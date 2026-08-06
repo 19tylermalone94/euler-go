@@ -8,5 +8,7 @@ func RunProblem(i int) {
 		problem1()
 	case 2:
 		problem2()
+	case 3:
+		problem3()
 	}
 }
