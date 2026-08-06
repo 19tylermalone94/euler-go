@@ -1,5 +1,7 @@
 package utility
 
+import "iter"
+
 func IsPrime(n int) bool {
 	for i := 2; i*i <= n; i++ {
 		if n%i == 0 {
@@ -9,20 +11,28 @@ func IsPrime(n int) bool {
 	return true
 }
 
-func PrimeFactors(n int) []int {
-	primeFactors := []int{}
-	for {
-		if IsPrime(n) {
-			primeFactors = append(primeFactors, n)
-			break
-		}
-		for i := 2; i*i <= n; i++ {
-			if IsPrime(i) && n%i == 0 {
-				primeFactors = append(primeFactors, i)
-				n /= i
-				break
+func Primes() iter.Seq[int] {
+	return func(yield func(int) bool) {
+		n := 2
+		for {
+			if IsPrime(n) {
+				if !yield(n) {
+					return
+				}
 			}
+			n++
 		}
 	}
-	return primeFactors
+}
+
+func PrimeFactors(n int) []int {
+	if IsPrime(n) {
+		return []int{n}
+	}
+	for k := range Primes() {
+		if n%k == 0 {
+			return append([]int{k}, PrimeFactors(n/k)...)
+		}
+	}
+	return nil
 }
