@@ -1,7 +1,7 @@
 package utility
 
 func IsPrime(n int) bool {
-	for i := 2; i*i < n; i++ {
+	for i := 2; i*i <= n; i++ {
 		if n%i == 0 {
 			return false
 		}
@@ -9,19 +9,23 @@ func IsPrime(n int) bool {
 	return true
 }
 
-func PrimeFactors(n int) map[int]struct{} {
-	res := make(map[int]struct{})
-	for i := 2; i*i < n; i++ {
-		if IsPrime(i) && n%i == 0 {
-			factor := n / i
-			if IsPrime(factor) {
-				res[factor] = struct{}{}
-			} else {
-				for val := range PrimeFactors(factor) {
-					res[val] = struct{}{}
-				}
+func PrimeFactors(n int) []int {
+	if IsPrime(n) {
+		return []int{n}
+	}
+	primeFactors := []int{}
+	for {
+		if IsPrime(n) {
+			primeFactors = append(primeFactors, n)
+			break
+		}
+		for i := 2; i*i <= n; i++ {
+			if IsPrime(i) && n%i == 0 {
+				primeFactors = append(primeFactors, i)
+				n /= i
+				break
 			}
 		}
 	}
-	return res
+	return primeFactors
 }
