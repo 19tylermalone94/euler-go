@@ -10,5 +10,7 @@ func RunProblem(i int) {
 		problem2()
 	case 3:
 		problem3()
+	case 4:
+		problem4()
 	}
 }
