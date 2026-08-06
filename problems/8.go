@@ -15,7 +15,31 @@ func problem8() {
 		fmt.Println("Failed to read file", err)
 	}
 	digits := []rune(string(data))
-	for i := 0; i < 13; i++ {
-		fmt.Println(digits[i] - '0')
+	maxProd := 0
+	prod := 1
+	count := 0
+	i := 0
+	for {
+		if i >= len(digits) {
+			break
+		}
+		if digits[i]-'0' == 0 {
+			prod = 1
+			count = 0
+		} else {
+			prod *= int(digits[i] - '0')
+			count++
+		}
+
+		if count == 14 {
+			fmt.Println(digits[i-13] - '0')
+			prod /= int(digits[i-13] - '0')
+			count--
+		}
+		if count == 13 {
+			maxProd = max(maxProd, prod)
+		}
+		i++
 	}
+	fmt.Println(maxProd)
 }
