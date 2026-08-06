@@ -1,23 +1,44 @@
 package problems
 
+import (
+	"euler-go/utility"
+	"fmt"
+	"math"
+)
+
 func lcm(nums []int) int {
-	// remove/ignore numbers that are factors of others
-	for _, val := range nums {
-		skip := false
-		for _, val2 := range nums {
-			if val2%val == 0 {
-				skip = true
+	primePowers := make(map[int]int)
+	for _, num := range nums {
+		pp := make(map[int]int)
+		for _, factor := range utility.PrimeFactors(num) {
+			_, ok := pp[factor]
+			if ok {
+				pp[factor]++
+			} else {
+				pp[factor] = 1
 			}
 		}
-		if skip {
-			continue
+		for key := range pp {
+			_, ok := primePowers[key]
+			if ok {
+				primePowers[key] = max(primePowers[key], pp[key])
+			} else {
+				primePowers[key] = pp[key]
+			}
 		}
-
 	}
-	// return product of all distinct prime factors of each number
-	return 0
+	product := 1
+	for prime := range primePowers {
+		product *= int(math.Pow(float64(prime), float64(primePowers[prime])))
+	}
+	return product
 }
 
 func problem5() {
-
+	n := 20
+	nums := make([]int, n)
+	for i := range n {
+		nums[i] = i + 1
+	}
+	fmt.Println(lcm(nums))
 }
