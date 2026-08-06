@@ -10,9 +10,6 @@ func IsPrime(n int) bool {
 }
 
 func PrimeFactors(n int) []int {
-	if IsPrime(n) {
-		return []int{n}
-	}
 	primeFactors := []int{}
 	for {
 		if IsPrime(n) {
