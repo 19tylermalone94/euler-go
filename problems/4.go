@@ -2,6 +2,10 @@ package problems
 
 import "fmt"
 
+func init() {
+	Register(4, problem4)
+}
+
 func isPalindromeNumber(n int) bool {
 	temp := n
 	reverse := 0

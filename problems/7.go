@@ -5,6 +5,10 @@ import (
 	"fmt"
 )
 
+func init() {
+	Register(7, problem7)
+}
+
 func problem7() {
 	count := 0
 	i := 2

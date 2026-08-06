@@ -2,6 +2,10 @@ package problems
 
 import "fmt"
 
+func init() {
+	Register(6, problem6)
+}
+
 func sumOfSquares(nums []int) int {
 	sum := 0
 	for _, val := range nums {

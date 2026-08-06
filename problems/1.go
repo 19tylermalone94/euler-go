@@ -2,6 +2,10 @@ package problems
 
 import "fmt"
 
+func init() {
+	Register(1, problem1)
+}
+
 func problem1() {
 	sum := 0
 	for i := range 1000 {

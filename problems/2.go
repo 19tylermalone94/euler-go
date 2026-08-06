@@ -2,6 +2,10 @@ package problems
 
 import "fmt"
 
+func init() {
+	Register(2, problem2)
+}
+
 func problem2() {
 	sum := 0
 	n2 := 0

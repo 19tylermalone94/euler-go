@@ -6,6 +6,10 @@ import (
 	"math"
 )
 
+func init() {
+	Register(5, problem5)
+}
+
 func lcm(nums []int) int {
 	primePowers := make(map[int]int)
 	for _, num := range nums {
