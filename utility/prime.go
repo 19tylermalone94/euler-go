@@ -24,13 +24,12 @@ func Primes() iter.Seq[int] {
 }
 
 func PrimeFactors(n int) []int {
-	if IsPrime(n) {
-		return []int{n}
-	}
-	for k := range Primes() {
-		if n%k == 0 {
-			return append([]int{k}, PrimeFactors(n/k)...)
+	if !IsPrime(n) {
+		for k := range Primes() {
+			if n%k == 0 {
+				return append([]int{k}, PrimeFactors(n/k)...)
+			}
 		}
 	}
-	return nil
+	return []int{n}
 }
