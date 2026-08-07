@@ -15,10 +15,8 @@ func Primes() iter.Seq[int] {
 	return func(yield func(int) bool) {
 		n := 2
 		for {
-			if IsPrime(n) {
-				if !yield(n) {
-					return
-				}
+			if IsPrime(n) && !yield(n) {
+				return
 			}
 			n++
 		}
