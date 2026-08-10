@@ -20,7 +20,7 @@ func problem17() {
 	letters[10] = 3  // ten
 	letters[11] = 6  // eleven
 	letters[12] = 6  // twelve
-	letters[13] = 8  //thirteen
+	letters[13] = 8  // thirteen
 	letters[14] = 8  // fourteen
 	letters[15] = 7  // fifteen
 	letters[16] = 7  // sixteen
