@@ -40,6 +40,5 @@ func problem19() {
 			month = 0
 		}
 	}
-	fmt.Println(day, date)
 	fmt.Println(count)
 }
