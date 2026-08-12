@@ -1,17 +1,19 @@
 package problems
 
-import "fmt"
+import (
+	"euler-go/utility"
+	"fmt"
+)
 
 func init() {
 	Register(21, problem21)
 }
 
 func properDivisorSum(x int) int {
+	properDivisors := utility.ProperDivisors(x)
 	sum := 0
-	for i := 1; i <= x/2; i++ {
-		if x%i == 0 {
-			sum += i
-		}
+	for _, val := range properDivisors {
+		sum += val
 	}
 	return sum
 }
