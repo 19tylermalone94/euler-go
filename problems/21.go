@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 )
 
@@ -10,7 +10,7 @@ func init() {
 }
 
 func properDivisorSum(x int) int {
-	properDivisors := utility.ProperDivisors(x)
+	properDivisors := util.ProperDivisors(x)
 	sum := 0
 	for _, val := range properDivisors {
 		sum += val

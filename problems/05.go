@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 	"math"
 )
@@ -14,7 +14,7 @@ func lcm(nums []int) int {
 	primePowers := make(map[int]int)
 	for _, num := range nums {
 		pp := make(map[int]int)
-		for _, factor := range utility.PrimeFactors(num) {
+		for _, factor := range util.PrimeFactors(num) {
 			_, ok := pp[factor]
 			if ok {
 				pp[factor]++

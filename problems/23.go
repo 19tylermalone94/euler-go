@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ func isSumOfTwoAbundant(n int) bool {
 
 func problem23() {
 	for i := range 28124 {
-		properDivisors := utility.ProperDivisors(i)
+		properDivisors := util.ProperDivisors(i)
 		sum := 0
 		for _, val := range properDivisors {
 			sum += val

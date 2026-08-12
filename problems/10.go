@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 )
 
@@ -16,7 +16,7 @@ func problem10() {
 		if i >= 2000000 {
 			break
 		}
-		if utility.IsPrime(i) {
+		if util.IsPrime(i) {
 			sum += i
 		}
 		i++

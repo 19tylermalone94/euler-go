@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 )
 
@@ -13,7 +13,7 @@ func problem7() {
 	count := 0
 	i := 2
 	for {
-		if utility.IsPrime(i) {
+		if util.IsPrime(i) {
 			count++
 			if count == 10001 {
 				fmt.Println(i)

@@ -1,4 +1,4 @@
-package utility
+package util
 
 func ProperDivisors(x int) []int {
 	properDivisors := []int{}

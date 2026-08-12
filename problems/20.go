@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 	"math/big"
 )
@@ -12,7 +12,7 @@ func init() {
 
 func problem20() {
 	n := big.NewInt(100)
-	fn := utility.Factorial(n).String()
+	fn := util.Factorial(n).String()
 	sum := 0
 	for i := range fn {
 		sum += int(fn[i]) - '0'

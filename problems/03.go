@@ -1,7 +1,7 @@
 package problems
 
 import (
-	"euler-go/utility"
+	"euler-go/util"
 	"fmt"
 	"slices"
 )
@@ -11,5 +11,5 @@ func init() {
 }
 
 func problem3() {
-	fmt.Println(slices.Max(utility.PrimeFactors(600851475143)))
+	fmt.Println(slices.Max(util.PrimeFactors(600851475143)))
 }
