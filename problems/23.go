@@ -9,20 +9,13 @@ func init() {
 	Register(23, problem23)
 }
 
-var abundantNums []int = []int{}
+var abundantNums map[int]struct{} = make(map[int]struct{})
 
 func isSumOfTwoAbundant(n int) bool {
-	for _, val1 := range abundantNums {
-		if val1 >= n {
-			break
-		}
-		for _, val2 := range abundantNums {
-			if val1+val2 > n {
-				break
-			}
-			if val1+val2 == n {
-				return true
-			}
+	for num := range abundantNums {
+		_, ok := abundantNums[n-num]
+		if ok {
+			return true
 		}
 	}
 	return false
@@ -36,7 +29,7 @@ func problem23() {
 			sum += val
 		}
 		if sum > i {
-			abundantNums = append(abundantNums, i)
+			abundantNums[i] = struct{}{}
 		}
 	}
 	sum := 0
