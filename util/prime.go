@@ -38,3 +38,16 @@ func PrimeFactors(n int) []int {
 	}
 	return []int{n}
 }
+
+func PrimeSupport(n int) map[int]struct{} {
+	primes := make(map[int]struct{})
+	for p := range Primes() {
+		if p > n/2 {
+			break
+		}
+		if n%p == 0 {
+			primes[p] = struct{}{}
+		}
+	}
+	return primes
+}
