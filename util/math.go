@@ -4,6 +4,16 @@ import "math/big"
 
 var BigOne *big.Int = big.NewInt(1)
 
+func Pow(base, power int) int {
+	if power == 0 {
+		return 1
+	}
+	if power == 1 {
+		return base
+	}
+	return base * Pow(base, power-1)
+}
+
 func Factorial(n int) int {
 	if n <= 0 {
 		return 1
