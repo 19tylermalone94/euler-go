@@ -12,7 +12,7 @@ func init() {
 
 func problem20() {
 	n := big.NewInt(100)
-	fn := util.Factorial(n).String()
+	fn := util.BigFactorial(n).String()
 	sum := 0
 	for i := range fn {
 		sum += int(fn[i]) - '0'
