@@ -15,7 +15,6 @@ func isTruncatablePrime(p int) bool {
 	for {
 		n += (p % 10) * place
 		if !util.IsPrime(n) || !util.IsPrime(p) {
-			fmt.Println(p, n)
 			return false
 		}
 		place *= 10
@@ -37,7 +36,6 @@ func problem37() {
 		if isTruncatablePrime(p) {
 			sum += p
 			count++
-			fmt.Println(count)
 			if count == 11 {
 				break
 			}
