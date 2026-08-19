@@ -10,8 +10,8 @@ func init() {
 }
 
 func isPentagonalNumber(n int) bool {
-	sol1 := (0.5 + math.Sqrt(0.25+float64(6*n))) / 3.0
-	if sol1 > 0 && sol1 == float64(int(sol1)) {
+	sol := (0.5 + math.Sqrt(0.25+float64(6*n))) / 3.0
+	if sol > 0 && sol == float64(int(sol)) {
 		return true
 	}
 	return false
