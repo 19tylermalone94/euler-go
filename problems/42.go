@@ -11,6 +11,15 @@ func init() {
 	Register(42, problem42)
 }
 
+func isTriangleNumber(n int) bool {
+	sol1 := -0.5 + math.Sqrt(0.25+float64(2*n))
+	sol2 := -0.5 - math.Sqrt(0.25+float64(2*n))
+	if sol1 == float64(int(sol1)) || sol2 == float64(int(sol2)) {
+		return true
+	}
+	return false
+}
+
 func problem42() {
 	data, err := os.ReadFile("input/42.txt")
 	if err != nil {
@@ -27,9 +36,7 @@ func problem42() {
 			}
 			val += int(char) - 'A' + 1
 		}
-		sol1 := -0.5 + math.Sqrt(0.25+float64(2*val))
-		sol2 := -0.5 - math.Sqrt(0.25+float64(2*val))
-		if sol1 == float64(int(sol1)) || sol2 == float64(int(sol2)) {
+		if isTriangleNumber(val) {
 			count++
 		}
 	}
